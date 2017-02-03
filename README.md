@@ -1,0 +1,1 @@
+# php-lib-object-manager

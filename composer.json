@@ -1,0 +1,21 @@
+{
+  "name": "brisum/lib-object-manager",
+  "description": "Simple ObjectManager",
+  "keywords": [
+    "object manager"
+  ],
+  "homepage": "https://github.com/brisum/php-lib-object-manager",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Oleksandr Manchenko",
+      "email": "omanchenko@brisum.com",
+      "homepage": "http://brisum.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Brisum\\Lib\\ObjectManager\\": "src/"
+    }
+  }
+}
