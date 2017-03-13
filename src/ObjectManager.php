@@ -1,8 +1,9 @@
 <?php
 
-namespace Brisum\Lib\ObjectManager;
+namespace Brisum\Lib;
 
 use ReflectionMethod;
+use ReflectionParameter;
 
 class ObjectManager
 {
@@ -203,7 +204,7 @@ class ObjectManager
         $result = [];
 
         foreach ($params as $param) {
-            /** @var ReflectionParam $param */
+            /** @var ReflectionParameter $param */
             if (isset($arguments[$param->name])) {
                 $result[$param->name] = $arguments[$param->name];
                 continue;
