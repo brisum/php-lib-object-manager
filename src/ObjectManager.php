@@ -77,10 +77,6 @@ class ObjectManager
             $instance = $reflection->newInstanceArgs($args);
         }
 
-        if ($this->isShared($class)) {
-            $this->sharedInstances[$class] = $instance;
-        }
-
         return $instance;
     }
 
@@ -213,9 +209,13 @@ class ObjectManager
             $class = $param->getClass();
             if ($class) {
                 $className = $class->getName();
-                $result[$className] = isset($this->sharedInstances[$className])
-                    ? $this->sharedInstances[$className]
-                    : $this->create($className);
+                if ($this->isShared($className)) {
+                    $result[$className] = isset($this->sharedInstances[$className])
+                        ? $this->sharedInstances[$className]
+                        : $this->get($className);
+                } else {
+                    $result[$className] = $this->create($className);
+                }
             }
         }
 
